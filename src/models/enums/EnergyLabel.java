@@ -3,16 +3,18 @@ package models.enums;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum Brand{
-    SAMSUNG("Samsung"),
-    APPLE("Apple"),
-    NOKIA("Nokia"),
-    LG("Lg"),
-    HTC("Htc"),
-    BOOK("Book");
+public enum EnergyLabel {
+    APLUSPLUSPLUS("A+++"),
+    APLUSPLUS("A++"),
+    APLUS("A+"),
+    A("A"),
+    B("B"),
+    C("C"),
+    D("D");
+
     private String alias;
 
-    Brand(String alias) {
+    EnergyLabel(String alias) {
         this.alias = alias;
     }
 
@@ -20,18 +22,18 @@ public enum Brand{
         return this.alias;
     }
 
-    private static final Map<String, Brand> lookup = new HashMap<>();
+    private static final Map<String, EnergyLabel> lookup = new HashMap<>();
 
     //Populate the lookup table on loading time
     static
     {
-        for(Brand pt : Brand.values())
+        for(EnergyLabel pt : EnergyLabel.values())
         {
             lookup.put(pt.getAlias(), pt);
         }
     }
 
-    public static Brand get(String alias){
+    public static EnergyLabel get(String alias){
         return lookup.get(alias);
     }
 }
