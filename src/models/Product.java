@@ -4,6 +4,7 @@ import models.enums.Brand;
 import models.enums.ProductType;
 
 public class Product {
+    public static long last_id=0;
     public long id;
     public String name;
     public long buy_price;
