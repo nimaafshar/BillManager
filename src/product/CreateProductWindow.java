@@ -3,6 +3,7 @@ package product;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +20,7 @@ import java.io.IOException;
 public class CreateProductWindow {
 
     public  Product inUseProduct;
-    public BooleanProperty finalProduct;
+    public BooleanProperty finalProduct = new SimpleBooleanProperty();
 
     Stage stage;
     public void start() throws IOException {
@@ -52,12 +53,15 @@ public class CreateProductWindow {
         finalProduct.addListener((v,oldValue,newValue)->{
             if(oldValue.booleanValue() == false && newValue.booleanValue() == true) {
                 //                    todo:add product to list
+                
+                stage.close();
             }
         });
         showProductMenu(productType);
     }
 
     public void showProductMenu(ProductType productType) throws IOException {
+        ProductMenu.productType = productType;
         Parent root = FXMLLoader.load(getClass().getResource("product_menu.fxml"));
         Scene scene = new Scene(root);
         Label typeLabel = (Label)scene.lookup("#typeLabel");
@@ -66,7 +70,55 @@ public class CreateProductWindow {
         ProductMenu.createProductWindow = this;
     }
 
-    public void showClothMenu(){ }
-    public void showElectricalMenu(){ }
-    public void showBookMenu(){ }
+    public void showClothMenu() throws IOException {
+        ClothMenu.createProductWindow = this;
+        Parent root = FXMLLoader.load(getClass().getResource("cloth_menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+    }
+    public void showElectricalMenu()throws IOException{
+        ElectricalProductMenu.createProductWindow = this;
+        Parent root = FXMLLoader.load(getClass().getResource("electrical_product_menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    public void showBookMenu()throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("book_menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        BookMenu.createProductWindow = this;
+    }
+
+    public void showShirtMenu() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("shirt_menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        ShirtMenu.createProductWindow = this;
+    }
+    public void showPantsMenu() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("shirt_menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        PantsMenu.createProductWindow = this;
+
+    }
+    public void showTVMenu()throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("tv_menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        TVMenu.createProductWindow = this;
+    }
+    public void showMobileMenu()throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("mobile_menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        MobileMenu.createProductWindow = this;
+    }
+    public void showLaptopMenu() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("laptop_menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        MobileMenu.createProductWindow = this;
+    }
 }

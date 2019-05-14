@@ -11,6 +11,7 @@ import models.enums.Brand;
 import models.enums.ProductType;
 
 import javax.security.auth.login.CredentialException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,11 +19,12 @@ public class ProductMenu implements Initializable {
     static CreateProductWindow createProductWindow;
     public TextField buyPriceField;
     public TextField idField;
-    public ComboBox brandCombo;
+    public ComboBox<String> brandCombo;
     public Button submitButton;
     public TextField nameField;
     public Label typeLabel;
     public TextArea descriptionField;
+    public static ProductType productType;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,15 +43,18 @@ public class ProductMenu implements Initializable {
             }
         });
         idField.setText(String.valueOf(Product.last_id+1));
+        if(productType != ProductType.PRODUCT){
+            submitButton.setText("Next");
+        }
     }
 
 
-    public void submit(ActionEvent actionEvent) {
+    public void submit(ActionEvent actionEvent) throws IOException {
         long id = Product.last_id+1;
         String name = nameField.getText();
-        long buyPrice = Long.valueOf(buyPriceField.getText());
-        ProductType type = ProductType.get(typeLabel.getText());
-        Brand brand = Brand.get((String)brandCombo.getValue());
+        long buyPrice = Long.valueOf(buyPriceField.getText().trim().equals("") ? "0" : buyPriceField.getText());
+        ProductType type = ProductType.get(typeLabel.getText().trim().equals("") ? ProductType.PRODUCT.getAlias():typeLabel.getText());
+        Brand brand = Brand.get(brandCombo.getValue());
         String description = descriptionField.getText();
         createProductWindow.inUseProduct = new Product(id,name,buyPrice,type,brand,description);
         switch (type){
