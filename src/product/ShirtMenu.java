@@ -16,7 +16,11 @@ public class ShirtMenu implements Initializable {
 
     public void submit(ActionEvent actionEvent) {
         Sleeve sleeve = Sleeve.get(sleeveCombo.getValue());
-        createProductWindow.inUseProduct = new Shirt((Cloth) createProductWindow.inUseProduct, sleeve);
+        try{
+            createProductWindow.inUseProduct = new Shirt((Cloth) createProductWindow.inUseProduct, sleeve);
+        }catch (NullPointerException e){
+            System.out.println("pppp");
+        }
         createProductWindow.finalProduct.setValue(true);
     }
 

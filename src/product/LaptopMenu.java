@@ -27,7 +27,12 @@ public class LaptopMenu implements Initializable {
     public void submit(ActionEvent actionEvent) {
         CPU cpu = CPU.get(CPUCombo.getValue());
         String gpu = GPUField.getText();
-        createProductWindow.inUseProduct = new Laptop((ElectricalProduct)createProductWindow.inUseProduct,cpu,gpu);
+        try {
+            createProductWindow.inUseProduct = new Laptop((ElectricalProduct) createProductWindow.inUseProduct, cpu, gpu);
+        }catch (NullPointerException e){
+            System.out.println(cpu);
+            System.out.println(gpu);
+        }
         createProductWindow.finalProduct.setValue(true);
     }
 }

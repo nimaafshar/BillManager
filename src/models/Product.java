@@ -59,4 +59,30 @@ public class Product {
         System.out.println(this.brand.name());
         System.out.println(this.description);
     }
+
+    public static Product fromJSON(JSONObject json){
+        ProductType type = ProductType.valueOf((String)json.get("type"));
+        switch (type){
+            case PRODUCT:
+                return new Product(json);
+            case CLOTH:
+                return new Cloth(json);
+            case SHIRT:
+                return new Shirt(json);
+            case PANTS:
+                return new Pants(json);
+            case ELECTRICAL_PRODUCT:
+                return new ElectricalProduct(json);
+            case TV:
+                return new TV(json);
+            case MOBILE:
+                return new Mobile(json);
+            case LAPTOP:
+                return new Laptop(json);
+            case BOOK:
+                return new Book(json);
+                default:
+                    return null;
+        }
+    }
 }

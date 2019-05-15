@@ -1,6 +1,115 @@
 {
-  "last_id": 12,
-  "prodcuts": [
-
+  "last_id": 9,
+  "products": [
+    {
+      "cloth_size": "M",
+      "sleeve": "SHORT",
+      "name": "Army Tshirt 1",
+      "description": "",
+      "buy_price": 88,
+      "id": 1,
+      "type": "SHIRT",
+      "brand": "HTC",
+      "cloth_material": "Linen"
+    },
+    {
+      "fit_type": "REGULAR",
+      "cloth_size": "M",
+      "name": "army pants 21pt.",
+      "description": "",
+      "buy_price": 45,
+      "id": 2,
+      "type": "PANTS",
+      "brand": "SAMSUNG",
+      "cloth_material": "COTTON"
+    },
+    {
+      "color": "0x994d66ff",
+      "os": "ANDROID",
+      "name": "galaxy s10",
+      "energy_label": "APLUS",
+      "description": "",
+      "warranty": 80,
+      "buy_price": 5000,
+      "id": 3,
+      "power": 80,
+      "storage": 64,
+      "type": "MOBILE",
+      "brand": "SAMSUNG"
+    },
+    {
+      "screen_type": "LED",
+      "color": "0xffcc66ff",
+      "has_home_cinema": true,
+      "name": "Samrt tv 55''",
+      "energy_label": "B",
+      "description": "smart?",
+      "warranty": 200,
+      "buy_price": 2500,
+      "id": 4,
+      "power": 200,
+      "type": "TV",
+      "brand": "LG"
+    },
+    {
+      "author": "paul",
+      "name": "1984",
+      "genre": "THRILLER",
+      "description": "",
+      "publisher": "Jangal",
+      "buy_price": 50,
+      "language": "ENGLISH",
+      "id": 5,
+      "type": "BOOK",
+      "brand": "BOOK"
+    },
+    {
+      "color": "0x333333ff",
+      "name": "thinkpad 11 2019",
+      "energy_label": "APLUS",
+      "description": "asdadksd sdak",
+      "warranty": 80,
+      "cpu": "COREI7",
+      "buy_price": 4000,
+      "id": 6,
+      "power": 80,
+      "type": "LAPTOP",
+      "brand": "NOKIA",
+      "gpu": "nvidia rt2080"
+    },
+    {
+      "color": "0xffffffff",
+      "name": "Oven ",
+      "energy_label": "APLUSPLUS",
+      "description": "",
+      "warranty": 2000,
+      "buy_price": 1500,
+      "id": 7,
+      "power": 2000,
+      "type": "ELECTRICAL_PRODUCT",
+      "brand": "SAMSUNG"
+    },
+    {
+      "name": "Sofa",
+      "description": "Something",
+      "buy_price": 1000,
+      "id": 8,
+      "type": "PRODUCT",
+      "brand": "NOKIA"
+    },
+    {
+      "screen_type": "LED",
+      "color": "0xffffffff",
+      "has_home_cinema": false,
+      "name": "usual lcd 40\"",
+      "energy_label": "APLUS",
+      "description": "",
+      "warranty": 80,
+      "buy_price": 1000,
+      "id": 9,
+      "power": 80,
+      "type": "TV",
+      "brand": "SAMSUNG"
+    }
   ]
 }

@@ -20,23 +20,25 @@ import java.io.IOException;
 
 public class CreateProductWindow {
 
-    public  Product inUseProduct;
+    static ProductManager productManager = new ProductManager();
+    public Product inUseProduct;
     public BooleanProperty finalProduct = new SimpleBooleanProperty();
 
     Stage stage;
+
     public void start() throws IOException {
         stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("create_product.fxml"));
         stage.setTitle("Bill Manager - Create Product");
         Scene scene = new Scene(root);
-        Button nextButton = (Button)scene.lookup("#nextButton");
+        Button nextButton = (Button) scene.lookup("#nextButton");
         TreeView<String> tree = (TreeView<String>) scene.lookup("#tree");
         Label logLabel = (Label) scene.lookup("#logLabel");
-        nextButton.setOnAction(e->{
+        nextButton.setOnAction(e -> {
             TreeItem<String> selectedItem = tree.getSelectionModel().getSelectedItem();
-            if(selectedItem == null){
+            if (selectedItem == null) {
                 logLabel.setText("Please Select Something");
-            }else {
+            } else {
                 logLabel.setText("");
                 try {
                     createProductForType(ProductType.get(selectedItem.getValue()));
@@ -51,11 +53,10 @@ public class CreateProductWindow {
 
     void createProductForType(ProductType productType) throws IOException {
         finalProduct.setValue(false);
-        finalProduct.addListener((v,oldValue,newValue)->{
-            if(oldValue.booleanValue() == false && newValue.booleanValue() == true) {
-                //                    todo:print product json
-                //todo:test this part
-                ProductManager.addProduct(this.inUseProduct);
+        finalProduct.addListener((v, oldValue, newValue) -> {
+            if (oldValue.booleanValue() == false && newValue.booleanValue() == true) {
+                System.out.println(this.inUseProduct.toJSON());
+                productManager.addProduct(this.inUseProduct);
                 stage.close();
             }
         });
@@ -66,7 +67,7 @@ public class CreateProductWindow {
         ProductMenu.productType = productType;
         Parent root = FXMLLoader.load(getClass().getResource("product_menu.fxml"));
         Scene scene = new Scene(root);
-        Label typeLabel = (Label)scene.lookup("#typeLabel");
+        Label typeLabel = (Label) scene.lookup("#typeLabel");
         typeLabel.setText(productType.getAlias());
         stage.setScene(scene);
         ProductMenu.createProductWindow = this;
@@ -78,14 +79,15 @@ public class CreateProductWindow {
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
-    public void showElectricalMenu()throws IOException{
+
+    public void showElectricalMenu() throws IOException {
         ElectricalProductMenu.createProductWindow = this;
         Parent root = FXMLLoader.load(getClass().getResource("electrical_product_menu.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
 
-    public void showBookMenu()throws IOException{
+    public void showBookMenu() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("book_menu.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -98,29 +100,33 @@ public class CreateProductWindow {
         stage.setScene(scene);
         ShirtMenu.createProductWindow = this;
     }
+
     public void showPantsMenu() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("shirt_menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("pants_menu.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         PantsMenu.createProductWindow = this;
 
     }
-    public void showTVMenu()throws IOException{
+
+    public void showTVMenu() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("tv_menu.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         TVMenu.createProductWindow = this;
     }
-    public void showMobileMenu()throws IOException{
+
+    public void showMobileMenu() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("mobile_menu.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         MobileMenu.createProductWindow = this;
     }
+
     public void showLaptopMenu() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("laptop_menu.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        MobileMenu.createProductWindow = this;
+        LaptopMenu.createProductWindow = this;
     }
 }

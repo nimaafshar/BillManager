@@ -4,9 +4,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import models.ElectricalProduct;
+import models.Mobile;
 import models.Product;
 import models.enums.Brand;
+import models.enums.EnergyLabel;
+import models.enums.MobileOS;
 import models.enums.ProductType;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -24,21 +29,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        Product product = new Product(1,
-                "pr1",
-                100,
-                ProductType.BOOK,
-                Brand.APPLE,
-                "somet description");
-        String jsonString = product.toJSON().toJSONString();
-        System.out.println(jsonString);
-        try {
-            JSONObject obj = (JSONObject) new JSONParser().parse(jsonString);
-            Product pr2 = new Product(obj);
-            System.out.println(pr2.toJSON().toJSONString());
-        } catch (ParseException e) {
-            System.out.println("parse exception");
-        }
-//        launch(args);
+        launch(args);
     }
 }

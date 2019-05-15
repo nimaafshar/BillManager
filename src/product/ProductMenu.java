@@ -30,9 +30,9 @@ public class ProductMenu implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         for(Brand brand:Brand.values()){
-            brandCombo.getItems().add(brand.name());
+            brandCombo.getItems().add(brand.getAlias());
         }
-        brandCombo.setValue(Brand.values()[0].name());
+        brandCombo.setValue(Brand.values()[0].getAlias());
         buyPriceField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,

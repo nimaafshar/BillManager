@@ -22,7 +22,7 @@ public class Mobile extends ElectricalProduct {
 
     public Mobile(JSONObject json){
         super(json);
-        this.storage = (int)json.get("storage");
+        this.storage = Integer.valueOf(String.valueOf(json.get("storage")));
         this.mobileOS = MobileOS.valueOf((String)json.get("os"));
     }
 }
