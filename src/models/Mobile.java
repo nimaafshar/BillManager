@@ -1,6 +1,7 @@
 package models;
 
 import models.enums.MobileOS;
+import org.json.simple.JSONObject;
 
 public class Mobile extends ElectricalProduct {
     int storage;//in gigabytes
@@ -9,5 +10,19 @@ public class Mobile extends ElectricalProduct {
         super(electricalProduct);
         this.mobileOS = mobileOS;
         this.storage =storage;
+    }
+
+    @Override
+    public JSONObject toJSON(){
+        JSONObject json = super.toJSON();
+        json.put("os",this.mobileOS.name());
+        json.put("storage",this.storage);
+        return json;
+    }
+
+    public Mobile(JSONObject json){
+        super(json);
+        this.storage = (int)json.get("storage");
+        this.mobileOS = MobileOS.valueOf((String)json.get("os"));
     }
 }

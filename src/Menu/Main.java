@@ -5,6 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import models.Product;
+import models.enums.Brand;
+import models.enums.ProductType;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class Main extends Application {
 
@@ -18,6 +24,21 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+        Product product = new Product(1,
+                "pr1",
+                100,
+                ProductType.BOOK,
+                Brand.APPLE,
+                "somet description");
+        String jsonString = product.toJSON().toJSONString();
+        System.out.println(jsonString);
+        try {
+            JSONObject obj = (JSONObject) new JSONParser().parse(jsonString);
+            Product pr2 = new Product(obj);
+            System.out.println(pr2.toJSON().toJSONString());
+        } catch (ParseException e) {
+            System.out.println("parse exception");
+        }
+//        launch(args);
     }
 }

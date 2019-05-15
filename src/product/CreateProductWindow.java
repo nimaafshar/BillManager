@@ -1,6 +1,7 @@
 package product;
 
 
+import helper.ProductManager;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -52,8 +53,9 @@ public class CreateProductWindow {
         finalProduct.setValue(false);
         finalProduct.addListener((v,oldValue,newValue)->{
             if(oldValue.booleanValue() == false && newValue.booleanValue() == true) {
-                //                    todo:add product to list
-                
+                //                    todo:print product json
+                //todo:test this part
+                ProductManager.addProduct(this.inUseProduct);
                 stage.close();
             }
         });

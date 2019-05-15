@@ -2,6 +2,7 @@ package models;
 
 import models.enums.Brand;
 import models.enums.ProductType;
+import org.json.simple.JSONObject;
 
 public class Product {
     public static long last_id=0;
@@ -27,5 +28,35 @@ public class Product {
         this.type = product.type;
         this.brand = product.brand;
         this.description = product.description;
+    }
+
+
+    public JSONObject toJSON(){
+        JSONObject json = new JSONObject();
+        json.put("id",this.id);
+        json.put("name",this.name);
+        json.put("buy_price",this.buy_price);
+        json.put("type",this.type.name());
+        json.put("brand",this.brand.name());
+        json.put("description",this.description);
+        return json;
+    }
+
+    public Product(JSONObject json){
+        this.id = (long)json.get("id");
+        this.name = (String)json.get("name");
+        this.buy_price = (long)json.get("buy_price");
+        this.type = ProductType.valueOf((String)json.get("type"));
+        this.brand = Brand.valueOf((String)json.get("brand"));
+        this.description = (String)json.get("description");
+    }
+
+    public void print(){
+        System.out.println(this.id);
+        System.out.println(this.name);
+        System.out.println(this.buy_price);
+        System.out.println(this.type.name());
+        System.out.println(this.brand.name());
+        System.out.println(this.description);
     }
 }

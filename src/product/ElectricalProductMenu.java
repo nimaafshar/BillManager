@@ -13,6 +13,7 @@ import models.ElectricalProduct;
 import models.enums.EnergyLabel;
 import models.enums.ProductType;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -57,7 +58,7 @@ public class ElectricalProductMenu implements Initializable {
         }
     }
 
-    public void submit(ActionEvent actionEvent) {
+    public void submit(ActionEvent actionEvent) throws IOException {
         EnergyLabel energyLabel = EnergyLabel.get(energyLabelCombo.getValue());
         Color color = colorPicker.getValue();
         Long power = Long.valueOf(powerField.getText().trim().equals("")? "0":powerField.getText());
