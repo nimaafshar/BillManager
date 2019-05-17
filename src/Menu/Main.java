@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.ElectricalProduct;
+import models.Invoice;
 import models.Mobile;
 import models.Product;
 import models.enums.Brand;

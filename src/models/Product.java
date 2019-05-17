@@ -13,6 +13,46 @@ public class Product {
     public Brand brand;
     public String description;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getBuy_price() {
+        return buy_price;
+    }
+
+    public void setBuy_price(long buy_price) {
+        this.buy_price = buy_price;
+    }
+
+    public String getType() {
+        return type.getAlias();
+    }
+
+    public void setType(String type) {
+        this.type = ProductType.get(type);
+    }
+
+    public String getBrand() {
+        return brand.getAlias();
+    }
+
+    public void setBrand(String brand) {
+        this.brand = Brand.get(brand);
+    }
+
     public Product(long id, String name, long buy_price, ProductType type, Brand brand, String description) {
         this.id = id;
         this.name = name;

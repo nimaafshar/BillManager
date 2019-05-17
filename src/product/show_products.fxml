@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="TOP_CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="product.ShowProducts">
+   <children>
+      <TableView fx:id="productsTable" prefWidth="630">
+      </TableView>
+      <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteSelectedItems" text="Delete" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" />
+   </padding>
+</VBox>

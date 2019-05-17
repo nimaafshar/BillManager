@@ -1,5 +1,5 @@
 {
-  "last_id": 9,
+  "last_id": 8,
   "products": [
     {
       "cloth_size": "M",
@@ -90,25 +90,15 @@
       "brand": "SAMSUNG"
     },
     {
-      "name": "Sofa",
-      "description": "Something",
-      "buy_price": 1000,
-      "id": 8,
-      "type": "PRODUCT",
-      "brand": "NOKIA"
-    },
-    {
-      "screen_type": "LED",
-      "color": "0xffffffff",
-      "has_home_cinema": false,
-      "name": "usual lcd 40\"",
-      "energy_label": "APLUS",
-      "description": "",
+      "color": "0xcc3333ff",
+      "name": "Vaccum cleaner",
+      "energy_label": "A",
+      "description": "sakfalfaf jqfheqenl",
       "warranty": 80,
-      "buy_price": 1000,
-      "id": 9,
+      "buy_price": 500,
+      "id": 8,
       "power": 80,
-      "type": "TV",
+      "type": "ELECTRICAL_PRODUCT",
       "brand": "SAMSUNG"
     }
   ]

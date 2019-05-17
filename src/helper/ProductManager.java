@@ -69,4 +69,9 @@ public class ProductManager {
 
     }
 
+    public void removeProduct(Product pr){
+        this.products.remove(pr);
+        this.saveProducts();
+    }
+
 }
