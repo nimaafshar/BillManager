@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class InvoiceManager {
-    ArrayList<Invoice> invoices;
+    public ArrayList<Invoice> invoices;
     public InvoiceManager(){
         this.invoices = new ArrayList<>();
         this.readInvoices();

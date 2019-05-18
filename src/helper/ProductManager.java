@@ -8,15 +8,28 @@ import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 public class ProductManager {
     public ArrayList<Product> products;
 
+    private Map<Long,Product> arranged;
     public ProductManager() {
         products = new ArrayList<>();
         this.readProducts();
+    }
+
+    public void arrangeById(){
+        this.arranged = new HashMap<>();
+        for(Product p :this.products){
+            arranged.put(p.id,p);
+        }
+    }
+
+    public Product getById(long id){
+        return  this.arranged.get(id);
     }
 
     private void readProducts(){

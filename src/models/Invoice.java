@@ -54,5 +54,13 @@ public class Invoice {
         }
     }
 
+    public long getProfit(){
+        long profit = 0;
+        for(InvoiceItem item:this.items){
+            profit+=(item.price-item.product.buy_price)*item.quantity;
+        }
+        return profit;
+    }
+
 
 }

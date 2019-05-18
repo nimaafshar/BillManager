@@ -17,7 +17,7 @@
       <Button fx:id="showProductsButton" minWidth="150.0" mnemonicParsing="false" onAction="#showShowProducts" text="Show Products" />
       <Button fx:id="createInvoiceButton" minWidth="150.0" mnemonicParsing="false" onAction="#showCreateInvoice" text="Create Invoice" />
       <Button fx:id="showInvoicesButton" minWidth="150.0" mnemonicParsing="false" text="Show Invoices" />
-      <Button fx:id="statisticsButton" minWidth="150.0" mnemonicParsing="false" text="Statistics" />
+      <Button fx:id="statisticsButton" minWidth="150.0" mnemonicParsing="false" onAction="#showStatistics" text="Statistics" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
