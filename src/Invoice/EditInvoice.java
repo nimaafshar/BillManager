@@ -41,7 +41,7 @@ public class EditInvoice implements Initializable {
     public Label statusLabel;
     public long invoiceId;
     public ProductManager productManager = new ProductManager();
-    public Invoice invoice;
+    public static Invoice invoice;
     public Label totalCostLabel;
     Map<TreeItem<String>,Product> map = new LinkedHashMap<>();
     ObservableList<InvoiceItem> invoiceItems;
@@ -51,7 +51,7 @@ public class EditInvoice implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //set the id
-        this.invoiceId = Invoice.lastId +1;
+        this.invoiceId = invoice.id;
         idLabel.setText("Invoice #"+this.invoiceId);
 
         //filling the tree
@@ -82,8 +82,6 @@ public class EditInvoice implements Initializable {
                 }
             }
         });
-        this.invoice = new Invoice();
-        this.invoice.id = this.invoiceId;
         productsTree.getSelectionModel().selectedItemProperty().addListener((v,oldItem,newItem)->{
             if(addProductButton.isDisable()){
                 addProductButton.setDisable(false);
@@ -101,6 +99,9 @@ public class EditInvoice implements Initializable {
 
         saveButton.setDisable(true);
         dateField.setValue(invoice.date);
+
+        nameField.setText(invoice.costumerName);
+        updateTotalCost();
     }
 
     public void deleteItem(ActionEvent actionEvent) {

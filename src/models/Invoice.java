@@ -15,6 +15,18 @@ public class Invoice {
     public LocalDate date;
     public long id;
 
+    public String getCostumerName() {
+        return costumerName;
+    }
+
+    public String getDate() {
+        return date.toString();
+    }
+
+    public long getId() {
+        return id;
+    }
+
     public Invoice(){
         items = new ArrayList<>();
         costumerName = "";

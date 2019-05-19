@@ -52,4 +52,12 @@ public class MenuController {
         window.setScene(scene);
         window.showAndWait();
     }
+
+    public void showShowInvoices(ActionEvent actionEvent) throws IOException {
+        Stage window = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../Invoice/show_invoices.fxml"));
+        Scene scene = new Scene(root);
+        window.setScene(scene);
+        window.showAndWait();
+    }
 }

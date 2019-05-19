@@ -16,7 +16,12 @@ public class InvoiceManager {
         this.invoices = new ArrayList<>();
         this.readInvoices();
     }
-    private void readInvoices(){
+
+    public void removeInvoice(Invoice invoice){
+        this.invoices.remove(invoice);
+        this.writeInvoices();
+    }
+    public void readInvoices(){
         invoices.clear();
         try {
             Reader reader = new FileReader("all_invoices.json");
